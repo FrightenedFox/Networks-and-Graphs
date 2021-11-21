@@ -1,12 +1,13 @@
 from typing import Union, Optional
 
 import numpy as np
+import numpy.typing as npt
 import networkx as nx
 
 
-def from_adjacency_matrix(adjacency_matrix: np.ndarray,
+def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
                           prob: Union[float, int] = 0.1,
-                          rng: Optional[np.random.Generator] = None):
+                          rng: Optional[np.random.Generator] = None) -> npt.NDArray[np.int_]:
     """
     Generates mutations in the adjacency matrix with the given mutation probability.
 
@@ -46,12 +47,13 @@ def from_adjacency_matrix(adjacency_matrix: np.ndarray,
     mask = rng.choice([0, 1], size=adjacency_matrix.shape, p=(1 - prob, prob))
     mask = np.tril(mask, k=-1)
     mask += mask.T
-    return adjacency_matrix.astype(int) ^ mask
+    mut_adjacency_matrix: npt.NDArray[np.int_] = adjacency_matrix.astype(int) ^ mask
+    return mut_adjacency_matrix
 
 
 def from_graph(graph: nx.Graph,
                prob: Union[float, int] = 0.1,
-               rng: Optional[np.random.Generator] = None):
+               rng: Optional[np.random.Generator] = None) -> nx.Graph:
     """
     Generates mutated graph with the given mutation probability.
 
@@ -77,6 +79,6 @@ def from_graph(graph: nx.Graph,
         raise TypeError(f"A graph of type networkx.classes.graph.Graph is expected, "
                         f"{type(graph)} is obtained instead.")
     elif isinstance(graph, (nx.DiGraph, nx.MultiGraph, nx.MultiDiGraph)):
-        raise NotImplementedError(f"Types DiGraph, MultiGraph and MultiDiGraph are not implemented yet.")
+        raise NotImplementedError("Types DiGraph, MultiGraph and MultiDiGraph are not implemented yet.")
     adjacency_matrix = nx.to_numpy_array(graph, dtype=int)
     return nx.from_numpy_array(from_adjacency_matrix(adjacency_matrix, prob, rng))
