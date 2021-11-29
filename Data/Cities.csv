@@ -1,0 +1,431 @@
+﻿City;District;Province;Population;Latitude;Longitude
+Warszawa;powiat Warszawa;mazowieckie;1794166;52,259;21,02
+Kraków;powiat Kraków;małopolskie;779966;50,06;19,959
+Łódź;powiat Łódź;łódzkie;672185;51,77;19,459
+Wrocław;powiat Wrocław;dolnośląskie;641928;51,11;17,03
+Poznań;powiat Poznań;wielkopolskie;532048;52,399;16,9
+Gdańsk;powiat Gdańsk;pomorskie;470805;54,36;18,639
+Bydgoszcz;powiat Bydgoszcz;kujawsko-pomorskie;344091;53,12;18,01
+Lublin;powiat Lublin;lubelskie;338586;51,24;22,57
+Białystok;powiat Białystok;podlaskie;296958;53,139;23,159
+Katowice;powiat Katowice;śląskie;290553;50,259;19,02
+Gdynia;powiat Gdynia;pomorskie;244969;54,52;18,53
+Częstochowa;powiat Częstochowa;śląskie;217530;50,81;19,129
+Radom;powiat Radom;mazowieckie;209296;51,399;21,159
+Toruń;powiat Toruń;kujawsko-pomorskie;198613;53,02;18,609
+Sosnowiec;powiat Sosnowiec;śląskie;197586;50,279;19,12
+Kielce;powiat Kielce;świętokrzyskie;193415;50,889;20,649
+Rzeszów;powiat Rzeszów;podkarpackie;196638;50,049;21,999
+Gliwice;powiat Gliwice;śląskie;177049;50,31;18,669
+Zabrze;powiat Zabrze;śląskie;170924;50,299;18,779
+Olsztyn;powiat Olsztyn;warmińsko-mazurskie;171249;53,779;20,489
+Bielsko-Biała;powiat Bielsko-Biała;śląskie;169756;49,819;19,049
+Bytom;powiat Bytom;śląskie;163255;50,349;18,909
+Zielona Góra;powiat Zielona Góra;lubuskie;140892;51,94;15,489
+Rybnik;powiat Rybnik;śląskie;137128;50,1;18,549
+Ruda Śląska;powiat Ruda Śląska;śląskie;136423;50,299;18,88
+Opole;powiat Opole;opolskie;127839;50,679;17,94
+Tychy;powiat Tychy;śląskie;126871;50,16;19
+Gorzów Wielkopolski;powiat Gorzów Wielkopolski;lubuskie;122589;52,74;15,23
+Dąbrowa Górnicza;powiat Dąbrowa Górnicza;śląskie;118285;50,33;19,18
+Elbląg;powiat Elbląg;warmińsko-mazurskie;118582;54,179;19,399
+Płock;powiat Płock;mazowieckie;118268;52,55;19,7
+Wałbrzych;powiat Wałbrzych;dolnośląskie;109971;50,78;16,28
+Włocławek;powiat Włocławek;kujawsko-pomorskie;108561;52,659;19,059
+Tarnów;powiat Tarnów;małopolskie;107498;50,009;20,99
+Chorzów;powiat Chorzów;śląskie;106846;50,299;19,03
+Kalisz;powiat Kalisz;wielkopolskie;99106;51,77;18,1
+Legnica;powiat Legnica;dolnośląskie;98436;51,209;16,159
+Grudziądz;powiat Grudziądz;kujawsko-pomorskie;93564;53,49;18,749
+Jaworzno;powiat Jaworzno;śląskie;90368;50,209;19,27
+Słupsk;powiat Słupsk;pomorskie;89780;54,47;17,019
+Jastrzębie-Zdrój;powiat Jastrzębie-Zdrój;śląskie;88038;49,99;18,59
+Nowy Sącz;powiat Nowy Sącz;małopolskie;83558;49,63;20,699
+Jelenia Góra;powiat Jelenia Góra;dolnośląskie;78335;50,909;15,729
+Siedlce;powiat Siedlce;mazowieckie;77813;52,169;22,28
+Mysłowice;powiat Mysłowice;śląskie;74559;50,24;19,14
+Konin;powiat Konin;wielkopolskie;72539;52,209;18,249
+Piotrków Trybunalski;powiat Piotrków Trybunalski;łódzkie;72250;51,409;19,7
+Piła;powiat pilski;wielkopolskie;72527;53,149;16,739
+Inowrocław;powiat inowrocławski;kujawsko-pomorskie;71674;52,78;18,249
+Lubin;powiat lubiński;dolnośląskie;71710;51,399;16,2
+Ostrów Wielkopolski;powiat ostrowski;wielkopolskie;71560;51,66;17,799
+Suwałki;powiat Suwałki;podlaskie;69639;54,109;22,94
+Ostrowiec Świętokrzyski;powiat ostrowiecki;świętokrzyskie;67404;50,95;21,389
+Gniezno;powiat gnieźnieński;wielkopolskie;67570;52,53;17,61
+Głogów;powiat głogowski;dolnośląskie;66120;51,669;16,08
+Siemianowice Śląskie;powiat Siemianowice Śląskie;śląskie;66270;50,33;19,049
+Pabianice;powiat pabianicki;łódzkie;63945;51,669;19,35
+Leszno;powiat Leszno;wielkopolskie;62854;51,849;16,57
+Zamość;powiat Zamość;lubelskie;62785;50,729;23,26
+Łomża;powiat Łomża;podlaskie;62573;53,18;22,07
+Chełm;powiat Chełm;lubelskie;61135;51,139;23,49
+Tomaszów Mazowiecki;powiat tomaszowski;łódzkie;61338;51,54;20,03
+Żory;powiat Żory;śląskie;62844;50,069;18,689
+Ełk;powiat ełcki;warmińsko-mazurskie;61903;53,83;22,359
+Pruszków;powiat pruszkowski;mazowieckie;62623;52,22;20,819
+Tarnowskie Góry;powiat tarnogórski;śląskie;61756;50,459;18,86
+Przemyśl;powiat Przemyśl;podkarpackie;59779;49,79;22,78
+Stalowa Wola;powiat stalowowolski;podkarpackie;59623;50,57;22,049
+Kędzierzyn-Koźle;powiat kędzierzyńsko-kozielski;opolskie;60021;50,34;18,209
+Mielec;powiat mielecki;podkarpackie;60075;50,29;21,43
+Tczew;powiat tczewski;pomorskie;59430;54,099;18,779
+Bełchatów;powiat bełchatowski;łódzkie;56419;51,369;19,36
+Biała Podlaska;powiat Biała Podlaska;lubelskie;56942;52,039;23,11
+Świdnica;powiat świdnicki;dolnośląskie;56222;50,849;16,489
+Będzin;powiat będziński;śląskie;56008;50,34;19,129
+Zgierz;powiat zgierski;łódzkie;55673;51,869;19,41
+Piekary Śląskie;powiat Piekary Śląskie;śląskie;54702;50,4;18,959
+Racibórz;powiat raciborski;śląskie;54259;50,09;18,219
+Legionowo;powiat legionowski;mazowieckie;53529;52,409;20,92
+Ostrołęka;powiat Ostrołęka;mazowieckie;51656;53,09;21,569
+Świętochłowice;powiat Świętochłowice;śląskie;49108;50,29;18,94
+Wejherowo;powiat wejherowski;pomorskie;49099;54,599;18,23
+Zawiercie;powiat zawierciański;śląskie;48703;50,489;19,42
+Rumia;powiat wejherowski;pomorskie;49536;54,59;18,37
+Starachowice;powiat starachowicki;świętokrzyskie;47638;51,06;21,07
+Skierniewice;powiat Skierniewice;łódzkie;47655;51,959;20,139
+Wodzisław Śląski;powiat wodzisławski;śląskie;47576;50,039;18,4
+Piaseczno;powiat piaseczyński;mazowieckie;48670;52,069;21,02
+Starogard Gdański;powiat starogardzki;pomorskie;47272;53,97;18,52
+Puławy;powiat puławski;lubelskie;46965;51,43;21,98
+Tarnobrzeg;powiat Tarnobrzeg;podkarpackie;46360;50,59;21,68
+Krosno;powiat Krosno;podkarpackie;45944;49,7;21,759
+Radomsko;powiat radomszczański;łódzkie;45353;51,069;19,44
+Dębica;powiat dębicki;podkarpackie;45189;50,06;21,42
+Skarżysko-Kamienna;powiat skarżyski;świętokrzyskie;44260;51,119;20,879
+Otwock;powiat otwocki;mazowieckie;44317;52,109;21,28
+Ciechanów;powiat ciechanowski;mazowieckie;43883;52,88;20,62
+Kutno;powiat kutnowski;łódzkie;43332;52,24;19,36
+Nysa;powiat nyski;opolskie;43356;50,479;17,339
+Sieradz;powiat sieradzki;łódzkie;41390;51,6;18,74
+Zduńska Wola;powiat zduńskowolski;łódzkie;41288;51,609;18,94
+Mińsk Mazowiecki;powiat miński;mazowieckie;40916;52,179;21,559
+Żyrardów;powiat żyrardowski;mazowieckie;39550;52,06;20,45
+Chojnice;powiat chojnicki;pomorskie;39647;53,7;17,569
+Świdnik;powiat świdnicki;lubelskie;38763;51,219;22,79
+Bolesławiec;powiat bolesławiecki;dolnośląskie;38486;51,259;15,56
+Nowa Sól;powiat nowosolski;lubuskie;38191;51,809;15,709
+Malbork;powiat malborski;pomorskie;38101;54,04;19,04
+Kwidzyn;powiat kwidzyński;pomorskie;38329;53,74;18,93
+Knurów;powiat gliwicki;śląskie;37801;50,22;18,669
+Oświęcim;powiat oświęcimski;małopolskie;37569;50,039;19,259
+Jarosław;powiat jarosławski;podkarpackie;37073;50,02;22,679
+Żary;powiat żarski;lubuskie;37052;51,649;15,13
+Sanok;powiat sanocki;podkarpackie;36999;49,57;22,209
+Oleśnica;powiat oleśnicki;dolnośląskie;36979;51,209;17,379
+Chrzanów;powiat chrzanowski;małopolskie;36118;50,139;19,399
+Ząbki;powiat wołomiński;mazowieckie;38546;52,29;21,11
+Sochaczew;powiat sochaczewski;mazowieckie;35891;52,23;20,229
+Sopot;powiat Sopot;pomorskie;35286;54,439;18,559
+Brzeg;powiat brzeski;opolskie;35226;50,849;17,47
+Czechowice-Dziedzice;powiat bielski;śląskie;35839;49,91;19,02
+Olkusz;powiat olkuski;małopolskie;34757;50,279;19,549
+Lębork;powiat lęborski;pomorskie;35101;54,549;17,75
+Jasło;powiat jasielski;podkarpackie;34542;49,739;21,469
+Cieszyn;powiat cieszyński;śląskie;33981;49,75;18,629
+Kraśnik;powiat kraśnicki;lubelskie;33917;50,929;22,219
+Marki;powiat wołomiński;mazowieckie;36816;52,329;21,11
+Nowy Targ;powiat nowotarski;małopolskie;33257;49,489;20,03
+Dzierżoniów;powiat dzierżoniowski;dolnośląskie;32869;50,729;16,65
+Iława;powiat iławski;warmińsko-mazurskie;33206;53,589;19,56
+Ostróda;powiat ostródzki;warmińsko-mazurskie;32714;53,71;19,959
+Oława;powiat oławski;dolnośląskie;33087;50,94;17,299
+Luboń;powiat poznański;wielkopolskie;32015;52,339;16,87
+Myszków;powiat myszkowski;śląskie;31261;50,58;19,319
+Czeladź;powiat będziński;śląskie;31039;50,32;19,129
+Grodzisk Mazowiecki;powiat grodziski;mazowieckie;32452;52,109;20,62
+Żywiec;powiat żywiecki;śląskie;30733;49,87;19,18
+Mława;powiat mławski;mazowieckie;31129;53,12;20,36
+Pruszcz Gdański;powiat gdański;pomorskie;31578;54,255;18,649
+Września;powiat wrzesiński;wielkopolskie;31000;52,32;17,579
+Zgorzelec;powiat zgorzelecki;dolnośląskie;29810;51,149;15,009
+Swarzędz;powiat poznański;wielkopolskie;29862;52,409;17,069
+Augustów;powiat augustowski;podlaskie;29946;53,839;23
+Bielawa;powiat dzierżoniowski;dolnośląskie;29523;50,689;16,61
+Łuków;powiat łukowski;lubelskie;29441;51,94;22,39
+Bochnia;powiat bocheński;małopolskie;29554;49,979;20,429
+Śrem;powiat śremski;wielkopolskie;29176;52,09;17,01
+Giżycko;powiat giżycki;warmińsko-mazurskie;28964;54,04;21,759
+Krotoszyn;powiat krotoszyński;wielkopolskie;28701;51,7;17,43
+Brodnica;powiat brodnicki;kujawsko-pomorskie;28701;53,259;19,399
+Nowy Dwór Mazowiecki;powiat nowodworski;mazowieckie;28691;52,429;20,709
+Czerwionka-Leszczyny;powiat rybnicki;śląskie;27888;50,17;18,68
+Gorlice;powiat gorlicki;małopolskie;26973;49,67;21,159
+Kętrzyn;powiat kętrzyński;warmińsko-mazurskie;26788;54,079;21,37
+Zakopane;powiat tatrzański;małopolskie;26846;49,289;19,959
+Turek;powiat turecki;wielkopolskie;26441;52,02;18,479
+Kłodzko;powiat kłodzki;dolnośląskie;26421;50,439;16,659
+Wyszków;powiat wyszkowski;mazowieckie;26980;52,599;21,449
+Biłgoraj;powiat biłgorajski;lubelskie;26114;50,539;22,729
+Jarocin;powiat jarociński;wielkopolskie;26225;51,979;17,499
+Świecie;powiat świecki;kujawsko-pomorskie;25486;53,4;18,44
+Pszczyna;powiat pszczyński;śląskie;25702;49,979;18,95
+Żagań;powiat żagański;lubuskie;25265;51,619;15,299
+Reda;powiat wejherowski;pomorskie;26707;54,62;18,34
+Wągrowiec;powiat wągrowiecki;wielkopolskie;25607;52,81;17,2
+Bielsk Podlaski;powiat bielski;podlaskie;25044;52,78;23,29
+Skawina;powiat krakowski;małopolskie;24366;49,979;19,83
+Kościan;powiat kościański;wielkopolskie;23716;52,09;16,639
+Lubliniec;powiat lubliniecki;śląskie;23551;50,669;18,689
+Kościerzyna;powiat kościerski;pomorskie;23778;54,13;17,97
+Kobyłka;powiat wołomiński;mazowieckie;25149;52,339;21,2
+Kluczbork;powiat kluczborski;opolskie;23254;50,98;18,209
+Sandomierz;powiat sandomierski;świętokrzyskie;22997;50,689;21,74
+Bartoszyce;powiat bartoszycki;warmińsko-mazurskie;22984;54,249;20,809
+Wieliczka;powiat wielicki;małopolskie;24215;49,99;20,09
+Szczytno;powiat szczycieński;warmińsko-mazurskie;22813;53,559;20,99
+Środa Wielkopolska;powiat średzki;wielkopolskie;23672;52,22;17,27
+Jawor;powiat jaworski;dolnośląskie;22462;51,06;16,2
+Świebodzice;powiat świdnicki;dolnośląskie;22642;50,86;16,329
+Piastów;powiat pruszkowski;mazowieckie;22559;52,209;20,92
+Wieluń;powiat wieluński;łódzkie;21892;51,219;18,569
+Polkowice;powiat polkowicki;dolnośląskie;22435;51,5;16,049
+Łaziska Górne;powiat mikołowski;śląskie;22130;50,17;18,779
+Nowa Ruda;powiat kłodzki;dolnośląskie;21643;50,59;16,5
+Zambrów;powiat zambrowski;podlaskie;21921;52,98;22,239
+Płońsk;powiat płoński;mazowieckie;21924;52,629;20,379
+Lubartów;powiat lubartowski;lubelskie;21636;51,459;22,61
+Koło;powiat kolski;wielkopolskie;21247;52,199;18,639
+Grajewo;powiat grajewski;podlaskie;21709;53,65;22,44
+Świebodzin;powiat świebodziński;lubuskie;21550;52,259;15,529
+Mrągowo;powiat mrągowski;warmińsko-mazurskie;21302;53,88;21,3
+Aleksandrów Łódzki;powiat zgierski;łódzkie;21754;51,82;19,299
+Opoczno;powiat opoczyński;łódzkie;20746;51,379;20,28
+Działdowo;powiat działdowski;warmińsko-mazurskie;21145;53,229;20,18
+Lubań;powiat lubański;dolnośląskie;20723;51,119;15,28
+Prudnik;powiat prudnicki;opolskie;20671;50,33;17,569
+Orzesze;powiat mikołowski;śląskie;21290;50,16;18,779
+Hajnówka;powiat hajnowski;podlaskie;20265;52,729;23,579
+Józefów;powiat otwocki;mazowieckie;20741;52,15;21,26
+Rawicz;powiat rawicki;wielkopolskie;20014;51,609;16,86
+Andrychów;powiat wadowicki;małopolskie;19837;49,86;19,339
+Gostyń;powiat gostyński;wielkopolskie;20250;51,879;17
+Trzebinia;powiat chrzanowski;małopolskie;19507;50,16;19,45
+Chełmno;powiat chełmiński;kujawsko-pomorskie;19205;53,35;18,429
+Sulejówek;powiat miński;mazowieckie;19951;52,25;21,27
+Bieruń;powiat bieruńsko-lędziński;śląskie;19375;50,1;19,1
+Ozorków;powiat zgierski;łódzkie;19128;51,969;19,29
+Pułtusk;powiat pułtuski;mazowieckie;19294;52,71;21,089
+Końskie;powiat konecki;świętokrzyskie;18878;51,2;20,399
+Pisz;powiat piski;warmińsko-mazurskie;19029;53,63;21,799
+Tomaszów Lubelski;powiat tomaszowski;lubelskie;18783;50,459;23,419
+Kamienna Góra;powiat kamiennogórski;dolnośląskie;18585;50,79;16,03
+Łęczna;powiat łęczyński;lubelskie;18675;51,31;22,87
+Sokołów Podlaski;powiat sokołowski;mazowieckie;18814;52,409;22,239
+Krasnystaw;powiat krasnostawski;lubelskie;18383;50,99;23,179
+Szamotuły;powiat szamotulski;wielkopolskie;18736;52,61;16,58
+Wadowice;powiat wadowicki;małopolskie;18379;49,879;19,489
+Kęty;powiat oświęcimski;małopolskie;18443;49,87;19,219
+Chodzież;powiat chodzieski;wielkopolskie;18229;52,989;16,91
+Gostynin;powiat gostyniński;mazowieckie;18355;53,43;19,43
+Pyskowice;powiat gliwicki;śląskie;18455;50,41;18,62
+Złotów;powiat złotowski;wielkopolskie;18437;53,359;17,03
+Pionki;powiat radomski;mazowieckie;17902;51,49;21,459
+Myślenice;powiat myślenicki;małopolskie;18325;49,839;19,939
+Nakło nad Notecią;powiat nakielski;kujawsko-pomorskie;18026;53,139;17,599
+Sokółka;powiat sokólski;podlaskie;17967;53,4;23,5
+Oborniki;powiat obornicki;wielkopolskie;17848;52,65;16,809
+Międzyrzecz;powiat międzyrzecki;lubuskie;17667;52,45;15,569
+Konstantynów Łódzki;powiat pabianicki;łódzkie;18335;51,75;19,319
+Sierpc;powiat sierpecki;mazowieckie;17788;52,86;19,65
+Strzelce Opolskie;powiat strzelecki;opolskie;17657;50,52;18,299
+Radlin;powiat wodzisławski;śląskie;17665;50,039;18,459
+Łańcut;powiat łańcucki;podkarpackie;17675;50,069;22,229
+Hrubieszów;powiat hrubieszowski;lubelskie;17232;50,81;23,889
+Zielonka;powiat wołomiński;mazowieckie;17486;52,299;21,169
+Bogatynia;powiat zgorzelecki;dolnośląskie;17037;50,919;14,96
+Garwolin;powiat garwoliński;mazowieckie;17548;51,909;21,62
+Rawa Mazowiecka;powiat rawski;łódzkie;17193;51,77;20,26
+Pleszew;powiat pleszewski;wielkopolskie;16953;51,909;17,779
+Łask;powiat łaski;łódzkie;16925;51,6;19,14
+Kozienice;powiat kozienicki;mazowieckie;16877;51,59;21,55
+Przasnysz;powiat przasnyski;mazowieckie;17055;53,01;20,879
+Trzcianka;powiat czarnkowsko-trzcianecki;wielkopolskie;17009;53,04;16,459
+Konstancin-Jeziorna;powiat piaseczyński;mazowieckie;16889;52,099;21,11
+Libiąż;powiat chrzanowski;małopolskie;16838;50,1;19,29
+Braniewo;powiat braniewski;warmińsko-mazurskie;16974;54,39;19,819
+Łomianki;powiat warszawski zachodni;mazowieckie;17080;52,349;20,889
+Bytów;powiat bytowski;pomorskie;16833;54,179;17,47
+Sulechów;powiat zielonogórski;lubuskie;16592;52,09;15,62
+Brzesko;powiat brzeski;małopolskie;16764;49,969;20,6
+Lędziny;powiat bieruńsko-lędziński;śląskie;16731;50,13;19,059
+Radzionków;powiat tarnogórski;śląskie;16903;50,39;18,889
+Międzyrzec Podlaski;powiat bialski;lubelskie;16667;51,99;22,78
+Słubice;powiat słubicki;lubuskie;16623;52,359;14,569
+Grójec;powiat grójecki;mazowieckie;16785;51,879;20,859
+Gubin;powiat krośnieński;lubuskie;16528;51,959;14,719
+Namysłów;powiat namysłowski;opolskie;16622;51,079;17,719
+Olecko;powiat olecki;warmińsko-mazurskie;16364;54,04;22,509
+Krapkowice;powiat krapkowicki;opolskie;15962;50,479;17,96
+Rypin;powiat rypiński;kujawsko-pomorskie;15999;53,069;19,41
+Milanówek;powiat grodziski;mazowieckie;16478;52,13;20,659
+Strzegom;powiat świdnicki;dolnośląskie;15873;50,959;16,35
+Dęblin;powiat rycki;lubelskie;15887;51,569;21,83
+Ustroń;powiat cieszyński;śląskie;15989;49,719;18,799
+Busko-Zdrój;powiat buski;świętokrzyskie;15611;50,479;20,719
+Ropczyce;powiat ropczycko-sędziszowski;podkarpackie;15864;50,069;21,749
+Lidzbark Warmiński;powiat lidzbarski;warmińsko-mazurskie;15489;54,139;20,59
+Jelcz-Laskowice;powiat oławski;dolnośląskie;15648;51,029;17,299
+Radzyń Podlaski;powiat radzyński;lubelskie;15428;51,79;22,62
+Złotoryja;powiat złotoryjski;dolnośląskie;15273;51,119;15,909
+Łapy;powiat białostocki;podlaskie;15412;52,989;22,89
+Solec Kujawski;powiat bydgoski;kujawsko-pomorskie;15614;53,069;18,23
+Ustka;powiat słupski;pomorskie;15199;54,58;16,85
+Boguszów-Gorce;powiat wałbrzyski;dolnośląskie;15154;50,76;16,189
+Przeworsk;powiat przeworski;podkarpackie;15105;50,069;22,5
+Nisko;powiat niżański;podkarpackie;15193;50,529;22,139
+Limanowa;powiat limanowski;małopolskie;15067;49,709;20,419
+Jędrzejów;powiat jędrzejowski;świętokrzyskie;14812;50,65;20,299
+Ząbkowice Śląskie;powiat ząbkowicki;dolnośląskie;14728;50,59;16,819
+Staszów;powiat staszowski;świętokrzyskie;14534;50,56;21,18
+Grodzisk Wielkopolski;powiat grodziski;wielkopolskie;14713;52,23;16,36
+Nowy Tomyśl;powiat nowotomyski;wielkopolskie;14319;52,31;16,12
+Chełmża;powiat toruński;kujawsko-pomorskie;14362;53,18;18,609
+Siemiatycze;powiat siemiatycki;podlaskie;14210;52,419;22,87
+Lipno;powiat lipnowski;kujawsko-pomorskie;14283;52,839;19,169
+Skoczów;powiat cieszyński;śląskie;14116;49,8;18,799
+Kartuzy;powiat kartuski;pomorskie;14276;54,329;18,2
+Głowno;powiat zgierski;łódzkie;13961;51,979;19,7
+Ostrzeszów;powiat ostrzeszowski;wielkopolskie;13964;51,419;17,95
+Kępno;powiat kępiński;wielkopolskie;13889;51,28;18
+Łęczyca;powiat łęczycki;łódzkie;13786;52,069;19,199
+Mosina;powiat poznański;wielkopolskie;14255;52,259;16,84
+Lubsko;powiat żarski;lubuskie;13733;51,79;14,96
+Pszów;powiat wodzisławski;śląskie;13734;50,039;18,4
+Wschowa;powiat wschowski;lubuskie;13717;51,799;16,319
+Żnin;powiat żniński;kujawsko-pomorskie;13623;52,85;17,709
+Leżajsk;powiat leżajski;podkarpackie;13585;50,259;22,42
+Morąg;powiat ostródzki;warmińsko-mazurskie;13459;53,919;19,93
+Nidzica;powiat nidzicki;warmińsko-mazurskie;13547;53,369;20,429
+Słupca;powiat słupecki;wielkopolskie;13564;52,29;17,879
+Gołdap;powiat gołdapski;warmińsko-mazurskie;13600;54,31;22,309
+Człuchów;powiat człuchowski;pomorskie;13479;53,67;17,35
+Tuchola;powiat tucholski;kujawsko-pomorskie;13534;53,589;17,85
+Wąbrzeźno;powiat wąbrzeski;kujawsko-pomorskie;13400;53,28;18,94
+Głuchołazy;powiat nyski;opolskie;13388;50,32;17,37
+Brwinów;powiat pruszkowski;mazowieckie;13687;52,179;20,799
+Chojnów;powiat legnicki;dolnośląskie;13236;51,28;15,93
+Trzebnica;powiat trzebnicki;dolnośląskie;13314;51,31;17,06
+Włodawa;powiat włodawski;lubelskie;12915;51,549;23,559
+Wolsztyn;powiat wolsztyński;wielkopolskie;12859;52,109;16,109
+Koluszki;powiat łódzki wschodni;łódzkie;12776;51,75;19,819
+Kłobuck;powiat kłobucki;śląskie;12756;50,909;18,94
+Węgrów;powiat węgrowski;mazowieckie;12452;52,399;22,01
+Golub-Dobrzyń;powiat golubsko-dobrzyński;kujawsko-pomorskie;12412;53,11;19,04
+Brzeziny;powiat brzeziński;łódzkie;12365;51,809;19,749
+Brzeg Dolny;powiat wołowski;dolnośląskie;12480;51,27;16,739
+Strzelin;powiat strzeliński;dolnośląskie;12383;50,78;17,069
+Wołów;powiat wołowski;dolnośląskie;12298;51,329;16,629
+Błonie;powiat warszawski zachodni;mazowieckie;12134;52,199;20,62
+Aleksandrów Kujawski;powiat aleksandrowski;kujawsko-pomorskie;12058;52,88;18,7
+Pasłęk;powiat elbląski;warmińsko-mazurskie;12107;54,069;19,659
+Lubaczów;powiat lubaczowski;podkarpackie;11830;50,16;23,119
+Góra Kalwaria;powiat piaseczyński;mazowieckie;11988;51,99;21,209
+Janów Lubelski;powiat janowski;lubelskie;11661;50,71;22,41
+Warka;powiat grójecki;mazowieckie;11926;51,799;21,19
+Szprotawa;powiat żagański;lubuskie;11530;51,569;15,52
+Dąbrowa Tarnowska;powiat dąbrowski;małopolskie;11828;50,179;21
+Mogilno;powiat mogileński;kujawsko-pomorskie;11652;52,65;17,96
+Góra;powiat górowski;dolnośląskie;11574;51,669;16,52
+Szydłowiec;powiat szydłowiecki;mazowieckie;11557;51,229;20,859
+Miechów;powiat miechowski;małopolskie;11500;50,36;20,019
+Zdzieszowice;powiat krapkowicki;opolskie;11246;50,419;18,12
+Krosno Odrzańskie;powiat krośnieński;lubuskie;11155;52,06;15,1
+Milicz;powiat milicki;dolnośląskie;11199;51,53;17,27
+Węgorzewo;powiat węgorzewski;warmińsko-mazurskie;11144;54,22;21,749
+Puck;powiat pucki;pomorskie;11139;54,709;18,4
+Brzeszcze;powiat oświęcimski;małopolskie;11092;49,99;19,149
+Wronki;powiat szamotulski;wielkopolskie;11064;52,7;16,36
+Koronowo;powiat bydgoski;kujawsko-pomorskie;11070;53,31;17,929
+Nowa Dęba;powiat tarnobrzeski;podkarpackie;11006;50,439;21,759
+Wisła;powiat cieszyński;śląskie;11007;49,659;18,87
+Rogoźno;powiat obornicki;wielkopolskie;11124;52,75;16,979
+Kowary;powiat jeleniogórski;dolnośląskie;10650;50,799;15,829
+Nowe Miasto Lubawskie;powiat nowomiejski;warmińsko-mazurskie;10709;53,43;19,59
+Pińczów;powiat pińczowski;świętokrzyskie;10524;50,539;20,529
+Czarnków;powiat czarnkowsko-trzcianecki;wielkopolskie;10464;52,91;16,549
+Parczew;powiat parczewski;lubelskie;10555;51,639;22,9
+Międzychód;powiat międzychodzki;wielkopolskie;10476;52,61;15,899
+Biskupiec;powiat olsztyński;warmińsko-mazurskie;10628;53,87;20,95
+Ciechocinek;powiat aleksandrowski;kujawsko-pomorskie;10534;52,88;18,79
+Miastko;powiat bytowski;pomorskie;10211;54;16,969
+Syców;powiat oleśnicki;dolnośląskie;10340;51,3;17,709
+Murowana Goślina;powiat poznański;wielkopolskie;10410;52,58;17,01
+Lubawa;powiat iławski;warmińsko-mazurskie;10374;53,5;19,749
+Kolno;powiat kolneński;podlaskie;10143;53,419;21,929
+Dobre Miasto;powiat olsztyński;warmińsko-mazurskie;10010;53,99;20,39
+Bukowno;powiat olkuski;małopolskie;9976;50,29;19,44
+Bystrzyca Kłodzka;powiat kłodzki;dolnośląskie;9878;50,299;16,639
+Drezdenko;powiat strzelecko-drezdenecki;lubuskie;9978;52,829;15,829
+Sulęcin;powiat sulęciński;lubuskie;10005;52,45;15,109
+Krzeszowice;powiat krakowski;małopolskie;9969;50,13;19,63
+Włoszczowa;powiat włoszczowski;świętokrzyskie;9798;50,86;19,969
+Mońki;powiat moniecki;podlaskie;9933;53,4;22,78
+Sztum;powiat sztumski;pomorskie;9798;53,849;18,959
+Strzelce Krajeńskie;powiat strzelecko-drezdenecki;lubuskie;9833;52,869;15,529
+Władysławowo;powiat pucki;pomorskie;9830;54,789;18,4
+Kudowa-Zdrój;powiat kłodzki;dolnośląskie;9772;50,429;16,229
+Nowy Dwór Gdański;powiat nowodworski;pomorskie;9862;54,22;19,12
+Czersk;powiat chojnicki;pomorskie;9900;53,8;17,97
+Karczew;powiat otwocki;mazowieckie;9811;52,08;21,249
+Maków Mazowiecki;powiat makowski;mazowieckie;9575;52,86;21,1
+Skwierzyna;powiat międzyrzecki;lubuskie;9454;52,589;15,489
+Ryki;powiat rycki;lubelskie;9531;51,639;21,929
+Opalenica;powiat nowotomyski;wielkopolskie;9545;52,31;16,399
+Blachownia;powiat częstochowski;śląskie;9457;50,79;18,959
+Szubin;powiat nakielski;kujawsko-pomorskie;9578;53,01;17,719
+Kożuchów;powiat nowosolski;lubuskie;9337;51,75;15,6
+Wysokie Mazowieckie;powiat wysokomazowiecki;podlaskie;9336;52,91;22,509
+Olesno;powiat oleski;opolskie;9353;50,889;18,409
+Czarna Białostocka;powiat białostocki;podlaskie;9198;53,589;22,579
+Poniatowa;powiat opolski;lubelskie;8980;51,18;22,12
+Sucha Beskidzka;powiat suski;małopolskie;9044;49,75;19,59
+Ustrzyki Dolne;powiat bieszczadzki;podkarpackie;8917;49,43;22,61
+Sępólno Krajeńskie;powiat sępoleński;kujawsko-pomorskie;9004;53,449;17,53
+Chełmek;powiat oświęcimski;małopolskie;8912;50,11;19,249
+Stary Sącz;powiat nowosądecki;małopolskie;9016;49,57;20,64
+Wojkowice;powiat będziński;śląskie;8877;50,36;19,01
+Lwówek Śląski;powiat lwówecki;dolnośląskie;8753;51,11;15,6
+Kruszwica;powiat inowrocławski;kujawsko-pomorskie;8709;52,68;18,299
+Orneta;powiat lidzbarski;warmińsko-mazurskie;8648;54,119;20,129
+Ziębice;powiat ząbkowicki;dolnośląskie;8531;50,599;17,05
+Janikowo;powiat inowrocławski;kujawsko-pomorskie;8638;52,429;17,03
+Ozimek;powiat opolski;opolskie;8480;50,689;18,219
+Grodków;powiat brzeski;opolskie;8501;50,7;17,37
+Kalety;powiat tarnogórski;śląskie;8548;50,57;18,899
+Wolbrom;powiat olkuski;małopolskie;8480;50,39;19,77
+Poręba;powiat zawierciański;śląskie;8461;50,489;19,339
+Opole Lubelskie;powiat opolski;lubelskie;8320;51,149;21,969
+Suchedniów;powiat skarżyski;świętokrzyskie;8248;51,069;20,83
+Żychlin;powiat kutnowski;łódzkie;7964;52,25;19,62
+Zawadzkie;powiat strzelecki;opolskie;7032;50,619;18,459
+Pieszyce;powiat dzierżoniowski;dolnośląskie;7012;50,72;16,59
+Ostrów Mazowiecka;powiat ostrowski;mazowieckie;22216;52,799;21,9
+Drawsko Pomorskie;powiat drawski;zachodniopomorskie;11417;53,529;15,8
+Kamień Pomorski;powiat kamieński;zachodniopomorskie;8677;53,97;14,779
+Szczecin;powiat Szczecin;zachodniopomorskie;398255;53,43;14,529
+Koszalin;powiat Koszalin;zachodniopomorskie;106235;54,189;16,18
+Kołobrzeg;powiat kołobrzeski;zachodniopomorskie;46198;54,189;15,569
+Świnoujście;powiat Świnoujście;zachodniopomorskie;40948;53,909;14,249
+Szczecinek;powiat szczecinecki;zachodniopomorskie;39827;53,71;16,689
+Police;powiat policki;zachodniopomorskie;32243;53,549;14,559
+Wałcz;powiat wałecki;zachodniopomorskie;24949;53,27;16,47
+Białogard;powiat białogardzki;zachodniopomorskie;23950;54,009;15,979
+Goleniów;powiat goleniowski;zachodniopomorskie;21979;53,57;14,819
+Gryfino;powiat gryfiński;zachodniopomorskie;20923;53,229;14,479
+Nowogard;powiat goleniowski;zachodniopomorskie;16448;53,66;15,109
+Gryfice;powiat gryficki;zachodniopomorskie;16212;53,919;15,19
+Świdwin;powiat świdwiński;zachodniopomorskie;15338;53,77;15,779
+Choszczno;powiat choszczeński;zachodniopomorskie;14998;53,18;15,4
+Dębno;powiat myśliborski;zachodniopomorskie;13626;52,74;14,699
+Barlinek;powiat myśliborski;zachodniopomorskie;13611;52,999;15,199
+Darłowo;powiat sławieński;zachodniopomorskie;13574;54,419;16,41
+Złocieniec;powiat drawski;zachodniopomorskie;12706;53,529;16
+Pyrzyce;powiat pyrzycki;zachodniopomorskie;12484;53,139;14,879
+Sławno;powiat sławieński;zachodniopomorskie;12357;54,349;16,67
+Myślibórz;powiat myśliborski;zachodniopomorskie;11049;52,929;14,869
+Trzebiatów;powiat gryficki;zachodniopomorskie;9899;54,069;15,26
+Głubczyce;powiat głubczycki;opolskie;12441;50,189;17,83
+Połaniec;powiat staszowski;świętokrzyskie;7988;50,429;21,28
+Rydułtowy;powiat wodzisławski;śląskie;21385;50,069;18,429
