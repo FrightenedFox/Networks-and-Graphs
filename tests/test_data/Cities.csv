@@ -1,0 +1,25 @@
+City;District;Province;Population;Latitude;Longitude
+Warszawa;powiat Warszawa;mazowieckie;1794166;52,259;21,02
+Kraków;powiat Kraków;małopolskie;779966;50,06;19,959
+Łódź;powiat Łódź;łódzkie;672185;51,77;19,459
+Wrocław;powiat Wrocław;dolnośląskie;641928;51,11;17,03
+Poznań;powiat Poznań;wielkopolskie;532048;52,399;16,9
+Gdańsk;powiat Gdańsk;pomorskie;470805;54,36;18,639
+Bydgoszcz;powiat Bydgoszcz;kujawsko-pomorskie;344091;53,12;18,01
+Lublin;powiat Lublin;lubelskie;338586;51,24;22,57
+Białystok;powiat Białystok;podlaskie;296958;53,139;23,159
+Katowice;powiat Katowice;śląskie;290553;50,259;19,02
+Gdynia;powiat Gdynia;pomorskie;244969;54,52;18,53
+Częstochowa;powiat Częstochowa;śląskie;217530;50,81;19,129
+Radom;powiat Radom;mazowieckie;209296;51,399;21,159
+Toruń;powiat Toruń;kujawsko-pomorskie;198613;53,02;18,609
+Sosnowiec;powiat Sosnowiec;śląskie;197586;50,279;19,12
+Kielce;powiat Kielce;świętokrzyskie;193415;50,889;20,649
+Rzeszów;powiat Rzeszów;podkarpackie;196638;50,049;21,999
+Gliwice;powiat Gliwice;śląskie;177049;50,31;18,669
+Zabrze;powiat Zabrze;śląskie;170924;50,299;18,779
+Olsztyn;powiat Olsztyn;warmińsko-mazurskie;171249;53,779;20,489
+Bielsko-Biała;powiat Bielsko-Biała;śląskie;169756;49,819;19,049
+Bytom;powiat Bytom;śląskie;163255;50,349;18,909
+Zielona Góra;powiat Zielona Góra;lubuskie;140892;51,94;15,489
+Rybnik;powiat Rybnik;śląskie;137128;50,1;18,549

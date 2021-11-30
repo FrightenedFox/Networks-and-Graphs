@@ -1,4 +1,6 @@
-from typing import Union
+from typing import Union, Dict, Any
+
+import numpy as np
 import networkx as nx
 import pandas as pd
 from geopy.distance import distance
@@ -6,7 +8,7 @@ from geopy.distance import distance
 
 class CitiesNodes(nx.Graph):
 
-    def __init__(self, node_attrs: Union[dict, pd.DataFrame] = None, **kwargs):
+    def __init__(self, node_attrs: Union[Dict[int, Dict[str, Any]], pd.DataFrame] = None, **kwargs):
         """
         Creates networkx Graph with node attributes if passed.
 
@@ -29,17 +31,47 @@ class CitiesNodes(nx.Graph):
             raise TypeError(f"node_attrs of type dictionary or pandas.DataFrame is expected, "
                             f"{type(node_attrs)} is obtained instead.")
 
-    def calculate_edge_length(self, edge):
-        # TODO: replace with more elegant code
-        longitudes = nx.get_node_attributes(self, "Longitude")
-        latitude = nx.get_node_attributes(self, "Latitude")
-        a, b = edge
-        coord_a = [latitude[a], longitudes[a]]
-        coord_b = [latitude[b], longitudes[b]]
-        return distance(coord_a, coord_b).km
+    def calculate_edge_lengths(self, edges):
+        """ Calculate length for each edge in edges
 
-    def set_edge_lengths(self):
-        pass
+        Parameters
+        ----------
+        edges : numpy.typing.ArrayLike
+            One or more edges to calculate their length
 
-    # TODO: rewrite original method for adding edges
+        Returns
+        -------
+        numpy.typing.ArrayLike
+            The lengths of the given edges
+        """
+        longitudes = pd.Series(nx.get_node_attributes(self, "Longitude"))
+        latitude = pd.Series(nx.get_node_attributes(self, "Latitude"))
+        coords = list(zip(latitude, longitudes))
+
+        def edge_length(n1, n2):
+            return distance(coords[n1], coords[n2]).km
+
+        if not edges:
+            raise ValueError("`edges` can not be None")
+        elif np.shape(edges[0]):
+            # There are a lot of edges
+            if np.shape(edges)[1] != 2:
+                raise ValueError(f"The second dimension of `edges` must be equal 2. Current shape: {np.shape(edges)}")
+
+            lengths = np.empty(len(edges), dtype=float)
+            for i, edge in enumerate(edges):
+                lengths[i] = edge_length(*edge)
+            return lengths
+        else:
+            # There is only one edge
+            return edge_length(*edges)
+
+    def set_edge_lengths(self) -> None:
+        """ Set the length for each edge """
+        if not self.edges:
+            raise RuntimeError("Graph has no edges")
+        lengths = self.calculate_edge_lengths(list(self.edges))
+        nx.set_edge_attributes(self, dict(zip(self.edges, lengths)), name="length")
+
+    # NOTE: think of rewriting original method for adding edges
     #       super().add_edges_from() should help

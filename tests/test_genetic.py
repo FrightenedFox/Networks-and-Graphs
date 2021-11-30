@@ -30,9 +30,9 @@ def test_from_graph():
     (np.eye(2), 1000, ValueError),                          # prob > 1
     (np.eye(2), 1.2, ValueError),                           # prob > 1
     (([[0, 1], [1, 0]]), 10, TypeError),                    # not a numpy.array
-    (np.array([0, 1, 0, 1]), 10, TypeError),                # not two-dimensional
-    (np.array([[0, 1], [1, 0], [1, 1]]), 10, TypeError),    # not two-dimensional
-    (np.array([[0, 1], [0, 0]]), 10, TypeError),            # not symmetric
+    (np.array([0, 1, 0, 1]), 10, ValueError),               # not two-dimensional
+    (np.array([[0, 1], [1, 0], [1, 1]]), 10, ValueError),   # not two-dimensional
+    (np.array([[0, 1], [0, 0]]), 10, ValueError),           # not symmetric
     (np.array([[0, 2], [2, 0]]), 1, NotImplementedError),   # hypergraph
 ])
 def test_adjacency_matrix_errors(matrix, prob, error):
@@ -41,10 +41,10 @@ def test_adjacency_matrix_errors(matrix, prob, error):
 
 
 @pytest.mark.parametrize("graph, error", [
-    (adjacency_matrix, TypeError),                      # not a graph
-    (nx.DiGraph(), NotImplementedError),                # directed graph
-    (nx.MultiGraph(), NotImplementedError),             # multigraph
-    (nx.MultiDiGraph(), NotImplementedError),           # directed multigraph
+    (adjacency_matrix, TypeError),      # not a graph
+    (nx.DiGraph(), TypeError),          # directed graph
+    (nx.MultiGraph(), TypeError),       # multigraph
+    (nx.MultiDiGraph(), TypeError),     # directed multigraph
 ])
 def test_graph_errors(graph, error):
     with pytest.raises(error):

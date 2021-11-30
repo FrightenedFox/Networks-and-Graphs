@@ -38,7 +38,7 @@ def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
     if not (adjacency_matrix.ndim == 2 and
             adjacency_matrix.shape[0] == adjacency_matrix.shape[1] and
             np.array_equal(adjacency_matrix, adjacency_matrix.T)):
-        raise TypeError("Given matrix is not an adjacency matrix.")
+        raise ValueError("Given matrix is not an adjacency matrix.")
     if np.any(adjacency_matrix > 1):
         raise NotImplementedError("Hypergraph mutation is not yet supported.")
     if rng is None:
@@ -79,6 +79,7 @@ def from_graph(graph: nx.Graph,
         raise TypeError(f"A graph of type networkx.classes.graph.Graph is expected, "
                         f"{type(graph)} is obtained instead.")
     elif isinstance(graph, (nx.DiGraph, nx.MultiGraph, nx.MultiDiGraph)):
-        raise NotImplementedError("Types DiGraph, MultiGraph and MultiDiGraph are not implemented yet.")
+        raise TypeError("Types DiGraph, MultiGraph and MultiDiGraph are not implemented yet.")
+
     adjacency_matrix = nx.to_numpy_array(graph, dtype=int)
     return nx.from_numpy_array(from_adjacency_matrix(adjacency_matrix, prob, rng))
