@@ -1,4 +1,4 @@
-from typing import Union, Dict, Any
+from typing import Union, Dict, Any, Optional
 
 import numpy as np
 import networkx as nx
@@ -21,7 +21,8 @@ class CitiesNodes(nx.Graph):
         """
         super().__init__(**kwargs)
 
-        self._total_length = None
+        self._total_length: Optional[int] = None
+        self._multi_incidence_matrix: Optional[pd.DataFrame] = None
 
         if isinstance(node_attrs, pd.DataFrame):
             self.add_nodes_from(node_attrs.index)
@@ -83,3 +84,28 @@ class CitiesNodes(nx.Graph):
         """ Total length of all edges. """
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
+
+    @property
+    def multi_incidence_matrix(self):
+        current_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
+        if self._multi_incidence_matrix is None:
+            if self.edges:
+                data = np.ones(shape=(len(current_index), len(self.nodes)))
+                df = pd.DataFrame(data, columns=list(self.nodes), index=current_index)
+                self._multi_incidence_matrix = df
+        else:
+            old_index = self._multi_incidence_matrix.index
+            if len(old_index) != len(current_index) or (old_index != current_index).any():
+                new_matrix = pd.DataFrame(index=current_index).join(
+                    self._multi_incidence_matrix,
+                    how="inner",
+                )
+                index_diff = set(current_index).difference(old_index)
+                data = np.ones(shape=(len(index_diff), len(self.nodes)))
+                df = pd.DataFrame(data, columns=list(self.nodes), index=index_diff)
+                self._multi_incidence_matrix = new_matrix.append(df).sort_index()
+        return self._multi_incidence_matrix
+
+    # TODO: add documentation to the multi_incidence_matrix property.
+
+    # TODO: write setter for the multi_incidence_matrix property
