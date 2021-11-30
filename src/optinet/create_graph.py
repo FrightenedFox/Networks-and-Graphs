@@ -21,6 +21,8 @@ class CitiesNodes(nx.Graph):
         """
         super().__init__(**kwargs)
 
+        self._total_length = None
+
         if isinstance(node_attrs, pd.DataFrame):
             self.add_nodes_from(node_attrs.index)
             nx.set_node_attributes(self, node_attrs.to_dict("index"))
@@ -32,17 +34,17 @@ class CitiesNodes(nx.Graph):
                             f"{type(node_attrs)} is obtained instead.")
 
     def calculate_edge_lengths(self, edges):
-        """ Calculate length for each edge in edges
+        """ Calculate length for each edge in edges.
 
         Parameters
         ----------
         edges : numpy.typing.ArrayLike
-            One or more edges to calculate their length
+            One or more edges to calculate their length.
 
         Returns
         -------
         numpy.typing.ArrayLike
-            The lengths of the given edges
+            The lengths of the given edges.
         """
         longitudes = pd.Series(nx.get_node_attributes(self, "Longitude"))
         latitude = pd.Series(nx.get_node_attributes(self, "Latitude"))
@@ -67,7 +69,7 @@ class CitiesNodes(nx.Graph):
             return edge_length(*edges)
 
     def set_edge_lengths(self) -> None:
-        """ Set the length for each edge """
+        """ Set the length for each edge. """
         if not self.edges:
             raise RuntimeError("Graph has no edges")
         lengths = self.calculate_edge_lengths(list(self.edges))
@@ -75,3 +77,9 @@ class CitiesNodes(nx.Graph):
 
     # NOTE: think of rewriting original method for adding edges
     #       super().add_edges_from() should help
+
+    @property
+    def total_length(self):
+        """ Total length of all edges. """
+        self._total_length = sum(nx.get_edge_attributes(self, "length").values())
+        return self._total_length
