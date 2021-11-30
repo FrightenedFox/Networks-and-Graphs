@@ -29,16 +29,17 @@ class CitiesNodes(nx.Graph):
             raise TypeError(f"node_attrs of type dictionary or pandas.DataFrame is expected, "
                             f"{type(node_attrs)} is obtained instead.")
 
-    def calculate_edge_lengths(self, edges):
-        # TODO: calculate distance between two points
+    def calculate_edge_length(self, edge):
+        # TODO: replace with more elegant code
+        longitudes = nx.get_node_attributes(self, "Longitude")
+        latitude = nx.get_node_attributes(self, "Latitude")
+        a, b = edge
+        coord_a = [latitude[a], longitudes[a]]
+        coord_b = [latitude[b], longitudes[b]]
+        return distance(coord_a, coord_b).km
+
+    def set_edge_lengths(self):
         pass
 
     # TODO: rewrite original method for adding edges
     #       super().add_edges_from() should help
-
-
-if __name__ == "__main__":
-    G = CitiesNodes()
-    G.add_nodes_from([1, 2, 3])
-    G.add_edges_from([[1, 2], [2, 3]])
-    print(list(G.edges)[0])
