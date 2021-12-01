@@ -9,8 +9,7 @@ from geopy.distance import distance
 class CitiesNodes(nx.Graph):
 
     def __init__(self, node_attrs: Union[Dict[int, Dict[str, Any]], pd.DataFrame] = None, **kwargs):
-        """
-        Creates networkx Graph with node attributes if passed.
+        """Creates networkx Graph with node attributes if passed.
 
         Parameters
         ----------
@@ -35,7 +34,7 @@ class CitiesNodes(nx.Graph):
                             f"{type(node_attrs)} is obtained instead.")
 
     def calculate_edge_lengths(self, edges):
-        """ Calculate length for each edge in edges.
+        """Calculate length for each edge in edges.
 
         Parameters
         ----------
@@ -70,7 +69,7 @@ class CitiesNodes(nx.Graph):
             return edge_length(*edges)
 
     def set_edge_lengths(self) -> None:
-        """ Set the length for each edge. """
+        """Set the length for each edge."""
         if not self.edges:
             raise RuntimeError("Graph has no edges")
         lengths = self.calculate_edge_lengths(list(self.edges))
@@ -80,13 +79,14 @@ class CitiesNodes(nx.Graph):
     #       super().add_edges_from() should help
 
     @property
-    def total_length(self):
+    def total_length(self) -> float:
         """ Total length of all edges. """
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
 
     @property
-    def multi_incidence_matrix(self):
+    def multi_incidence_matrix(self) -> Optional[pd.DataFrame]:
+        """A matrix with complete description of how much traffic each edge carries to each node."""
         current_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
         if self._multi_incidence_matrix is None:
             if self.edges:

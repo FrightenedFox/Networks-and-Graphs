@@ -8,8 +8,7 @@ import networkx as nx
 def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
                           prob: Union[float, int] = 0.1,
                           rng: Optional[np.random.Generator] = None) -> npt.NDArray[np.int_]:
-    """
-    Generates mutations in the adjacency matrix with the given mutation probability.
+    """Generates mutations in the adjacency matrix with the given mutation probability.
 
     Parameters
     ----------
@@ -54,8 +53,7 @@ def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
 def from_graph(graph: nx.Graph,
                prob: Union[float, int] = 0.1,
                rng: Optional[np.random.Generator] = None) -> nx.Graph:
-    """
-    Generates mutated graph with the given mutation probability.
+    """Generates mutated graph with the given mutation probability.
 
     Parameters
     ----------
