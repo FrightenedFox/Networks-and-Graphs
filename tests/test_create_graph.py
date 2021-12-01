@@ -27,6 +27,15 @@ def test_lengths(graph):
     assert 920 <= graph.total_length <= 960
 
 
+def test_bandwidths(graph):
+    with pytest.raises(RuntimeWarning):
+        graph.set_edge_bandwidths()                # There are no edges in the graph yet
+
+    graph.add_edges_from(node_list1)
+    graph.set_edge_bandwidths()
+    assert graph.edges[0, 1]["bandwidth"] == 24.0
+
+
 def test_multi_incidence_matrix(graph):
     assert graph.multi_incidence_matrix is None
     graph.multi_incidence_matrix = None
@@ -44,6 +53,9 @@ def test_multi_incidence_matrix(graph):
     graph.remove_edges_from(node_list2)
     assert graph.multi_incidence_matrix.shape == (4, 24)    # type: ignore[attr-defined]
     assert graph.multi_incidence_matrix.sum().sum() == 48   # 0.5 * (4 rows) * (24 cols)
+
+    print(f"{graph.adj=}")
+    print(f"{graph.edges=}")
 
 
 @pytest.mark.parametrize("value", [
@@ -71,3 +83,7 @@ def test_initialize_graph_error():
     node_attrs = "This is certainly not a dictionary or pandas DataFrame"
     with pytest.raises(TypeError):
         CitiesNodes(node_attrs=node_attrs)      # Not a dictionary or pandas DataFrame
+
+
+if __name__ == '__main__':
+    test_lengths(CitiesNodes(df))

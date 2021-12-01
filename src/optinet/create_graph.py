@@ -76,8 +76,13 @@ class CitiesNodes(nx.Graph):
             lengths = self.calculate_edge_lengths(list(self.edges))
             nx.set_edge_attributes(self, dict(zip(self.edges, lengths)), name="length")
 
-    # NOTE: think of rewriting original method for adding edges
-    #       super().add_edges_from() should help
+    def set_edge_bandwidths(self):
+        """Set bandwidth for each edge."""
+        if not self.edges:
+            raise RuntimeWarning("The graph has no edges, no edge bandwidths were set.")
+        else:
+            bandwidths = self.multi_incidence_matrix.sum(axis="columns")
+            nx.set_edge_attributes(self, dict(zip(self.edges, bandwidths)), name="bandwidth")
 
     @property
     def total_length(self) -> float:
@@ -88,7 +93,7 @@ class CitiesNodes(nx.Graph):
         return self._total_length
 
     @property
-    def multi_incidence_matrix(self) -> Optional[pd.DataFrame]:
+    def multi_incidence_matrix(self):
         """A matrix with complete description of how much traffic each edge carries to each node."""
         current_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
         if self._multi_incidence_matrix is None:
@@ -119,6 +124,7 @@ class CitiesNodes(nx.Graph):
             acceptable_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
             if (value.sort_index().index == acceptable_index).all():
                 self._multi_incidence_matrix = value
+                self.set_edge_bandwidths()
             else:
                 raise ValueError("Index of the DataFrame is not compatible with the current graph state.")
         else:
