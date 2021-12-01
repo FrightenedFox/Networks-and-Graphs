@@ -1,0 +1,13 @@
+flake8
+geopy
+matplotlib
+matplotlib-inline
+mypy
+mypy-extensions
+networkx
+numpy
+pandas
+Pillow
+pytest
+pytest-cov
+tox
