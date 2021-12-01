@@ -20,7 +20,7 @@ class CitiesNodes(nx.Graph):
         """
         super().__init__(**kwargs)
 
-        self._total_length: Optional[int] = None
+        self._total_length: float = 0
         self._multi_incidence_matrix: Optional[pd.DataFrame] = None
 
         if isinstance(node_attrs, pd.DataFrame):
@@ -68,19 +68,22 @@ class CitiesNodes(nx.Graph):
             # There is only one edge
             return edge_length(*edges)
 
-    def set_edge_lengths(self) -> None:
+    def set_edge_lengths(self):
         """Set the length for each edge."""
         if not self.edges:
-            raise RuntimeError("Graph has no edges")
-        lengths = self.calculate_edge_lengths(list(self.edges))
-        nx.set_edge_attributes(self, dict(zip(self.edges, lengths)), name="length")
+            raise RuntimeWarning("The graph has no edges, no edge lengths were set.")
+        else:
+            lengths = self.calculate_edge_lengths(list(self.edges))
+            nx.set_edge_attributes(self, dict(zip(self.edges, lengths)), name="length")
 
     # NOTE: think of rewriting original method for adding edges
     #       super().add_edges_from() should help
 
     @property
     def total_length(self) -> float:
-        """ Total length of all edges. """
+        """Total length of all edges."""
+        if self.edges:
+            self.set_edge_lengths()
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
 
@@ -91,7 +94,7 @@ class CitiesNodes(nx.Graph):
         if self._multi_incidence_matrix is None:
             if self.edges:
                 data = np.ones(shape=(len(current_index), len(self.nodes)))
-                df = pd.DataFrame(data, columns=list(self.nodes), index=current_index)
+                df = pd.DataFrame(data, columns=np.array(self.nodes).astype(str), index=current_index)
                 self._multi_incidence_matrix = df
         else:
             old_index = self._multi_incidence_matrix.index
@@ -102,10 +105,23 @@ class CitiesNodes(nx.Graph):
                 )
                 index_diff = set(current_index).difference(old_index)
                 data = np.ones(shape=(len(index_diff), len(self.nodes)))
-                df = pd.DataFrame(data, columns=list(self.nodes), index=index_diff)
+                df = pd.DataFrame(data, columns=np.array(self.nodes).astype(str), index=index_diff)
                 self._multi_incidence_matrix = new_matrix.append(df).sort_index()
         return self._multi_incidence_matrix
 
-    # TODO: add documentation to the multi_incidence_matrix property.
-
-    # TODO: write setter for the multi_incidence_matrix property
+    @multi_incidence_matrix.setter
+    def multi_incidence_matrix(self, value: Optional[pd.DataFrame]):
+        if value is None and self.edges:
+            raise ValueError("multi_incidence_matrix can not be None, when graph contains edges")
+        elif value is None:     # and not self.edges
+            self._multi_incidence_matrix = None
+        elif self.edges and value.shape == (len(self.edges), len(self.nodes)):
+            acceptable_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
+            if (value.sort_index().index == acceptable_index).all():
+                self._multi_incidence_matrix = value
+            else:
+                raise ValueError("Index of the DataFrame is not compatible with the current graph state.")
+        else:
+            raise ValueError(f"Shape of the multi_incidence_matrix must be equal (# of edges, # of nodes). "
+                             f"For this graph: ({len(self.edges)}, {len(self.nodes)}). "
+                             f"{value.shape=} obtained instead.")
