@@ -124,4 +124,4 @@ class CitiesNodes(nx.Graph):
         else:
             raise ValueError(f"Shape of the multi_incidence_matrix must be equal (# of edges, # of nodes). "
                              f"For this graph: ({len(self.edges)}, {len(self.nodes)}). "
-                             f"{value.shape=} obtained instead.")
+                             f"{value.shape} obtained instead.")
