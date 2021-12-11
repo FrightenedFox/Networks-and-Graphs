@@ -5,6 +5,8 @@ import networkx as nx
 import pandas as pd
 from geopy.distance import distance
 
+from optinet.genetic import mutate
+
 
 class CitiesNodes(nx.Graph):
 
@@ -92,6 +94,7 @@ class CitiesNodes(nx.Graph):
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
 
+    # TODO: this property is not more necessary, remove it
     @property
     def multi_incidence_matrix(self):
         """A matrix with complete description of how much traffic each edge carries to each node."""
@@ -131,3 +134,12 @@ class CitiesNodes(nx.Graph):
             raise ValueError(f"Shape of the multi_incidence_matrix must be equal (# of edges, # of nodes). "
                              f"For this graph: ({len(self.edges)}, {len(self.nodes)}). "
                              f"{value.shape} obtained instead.")
+
+    def optimise(self, n_mutations=100, prob=0.8, **kwargs):
+        for i in range(1, n_mutations+1):
+            new_graph = self.copy()
+            new_graph.clear_edges()
+            new_graph.update(mutate.from_graph(self, prob=(prob/i), **kwargs))
+            if new_graph.total_length < self.total_length and nx.is_connected(new_graph):
+                self.clear_edges()
+                self.update(new_graph)

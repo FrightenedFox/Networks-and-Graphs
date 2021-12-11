@@ -1,3 +1,4 @@
+import networkx as nx
 import pytest
 import pandas as pd
 
@@ -26,6 +27,9 @@ def test_lengths(graph):
     assert 250 <= graph.calculate_edge_lengths([0, 1]) <= 260   # should be in that range
     assert 920 <= graph.total_length <= 960
 
+    graph.update(nx.complete_graph(n=len(graph.nodes)))
+    graph.optimise()
+
 
 def test_bandwidths(graph):
     with pytest.raises(RuntimeWarning):
@@ -53,9 +57,6 @@ def test_multi_incidence_matrix(graph):
     graph.remove_edges_from(node_list2)
     assert graph.multi_incidence_matrix.shape == (4, 24)    # type: ignore[attr-defined]
     assert graph.multi_incidence_matrix.sum().sum() == 48   # 0.5 * (4 rows) * (24 cols)
-
-    print(f"{graph.adj=}")
-    print(f"{graph.edges=}")
 
 
 @pytest.mark.parametrize("value", [
