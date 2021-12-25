@@ -1,8 +1,10 @@
-# import pytest
-# import numpy as np
-#
-#
-# @pytest.fixture()
-# def rng():
-#     seed = 12345
-#     return np.random.default_rng(seed), seed
+import pytest
+import pandas as pd
+from optinet.create_graph import CitiesNodes
+
+df = pd.read_csv("tests/test_data/Cities.csv", sep=";", decimal=",")
+
+
+@pytest.fixture()
+def graph():
+    return CitiesNodes(df)
