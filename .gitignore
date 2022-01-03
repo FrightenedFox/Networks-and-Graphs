@@ -1,5 +1,6 @@
-Notebooks/.ipynb_checkpoints/*
+Notebooks/.ipynb_checkpoints/
 !/.gitignore
+.virtual_documents/
 
 ### VisualStudio template
 ## Ignore Visual Studio temporary files, build results, and
