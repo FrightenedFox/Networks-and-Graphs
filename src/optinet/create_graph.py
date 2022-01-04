@@ -4,8 +4,14 @@ import numpy as np
 import networkx as nx
 import pandas as pd
 from geopy.distance import distance
+import matplotlib.pyplot as plt
 
-from optinet.genetic import mutate
+from optinet import mutate
+from optinet import cross_section
+
+
+def gaussian(x, mu, sig):
+    return np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
 
 
 class CitiesNodes(nx.Graph):
@@ -99,19 +105,28 @@ class CitiesNodes(nx.Graph):
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
 
-    def evaluate(self, population, length_coef=3, disconn_coef=2, conn_coef=1):
+    def evaluate(self, population, redundancy_level=1, redundancy_sigma=0.5):
         self.set_min_total_length()
         scores = np.zeros(population.shape[0])
+        best_con_score, best_length_score, best_score, best_discon = 0, 0, 0, False
         for i, individual in enumerate(population):
             new_graph = CitiesNodes(self.node_attrs)
             new_graph.update(nx.from_numpy_array(individual))
-            length_score = length_coef * self.min_total_length / new_graph.total_length
-            disconn_score = disconn_coef * int(nx.is_connected(self))
-            conn_score = conn_coef * nx.average_node_connectivity(self)
+            length_score = self.min_total_length / new_graph.total_length * redundancy_level
+            disconn_score = int(nx.is_connected(new_graph))
+            x = nx.average_node_connectivity(new_graph)
+            conn_score = gaussian(x, redundancy_level, redundancy_sigma)
             scores[i] = length_score + disconn_score + conn_score
-        return scores
+            if scores[i] > best_score:
+                best_score = scores[i]
+                best_con_score = conn_score
+                best_length_score = length_score
+                best_discon = nx.is_connected(new_graph)
+        print(f"{best_length_score=} -- {best_con_score=} -- is connected? {best_discon}")
+        return scores, np.argsort(scores)
 
-    def optimise(self, n_mutations=3, population_size=10, redundancy_level=2):
+    def optimise(self, n_generations=100, population_survival_size=12, redundancy_level=2, redundancy_sigma=0.1, reproduction_mutation_prob=0.001):
+        initial_reproduction_mutation_prob = reproduction_mutation_prob
         adj_mat = nx.to_numpy_array(self, dtype=int)
         st_edge_prob = 2 / len(self.nodes)  # probability of the edge in the spanning tree of this graph
         init_prob = redundancy_level * st_edge_prob
@@ -119,8 +134,31 @@ class CitiesNodes(nx.Graph):
         population = mutate.from_adjacency_matrix(
             adjacency_matrix=np.zeros(adj_mat.shape),
             prob=init_prob,
-            n=population_size,
+            n=population_survival_size ** 2,
         )
-        print(self.evaluate(population))
+        previous_best, n_repeats = 0, 0
+        for generation in range(n_generations):
+            scores, places = self.evaluate(population, redundancy_level, redundancy_sigma)
+            best_individuals = population[places][-population_survival_size:]
+            best_cross = cross_section(best_individuals)
+            population = np.squeeze(mutate.from_adjacency_matrix(
+                adjacency_matrix=best_cross,
+                prob=reproduction_mutation_prob,
+                n=1,
+            ))
+            scores = np.sort(scores)
+            if np.isclose(previous_best, scores[-1], atol=10e-5):
+                n_repeats += 1
+            else:
+                n_repeats = 0
+            previous_best = scores[-1]
+            if n_repeats > 3:
+                reproduction_mutation_prob *= 2
+            else:
+                reproduction_mutation_prob = initial_reproduction_mutation_prob
 
-        pass
+            print(f"{generation=}::{n_repeats=}::{np.sum(population[places][-1])}::{reproduction_mutation_prob=}::{scores[-5:]}")
+        _, places = self.evaluate(population, redundancy_level, redundancy_sigma)
+        self.clear_edges()
+        self.update(nx.from_numpy_array(population[places][-1]))
+        return population[places][-1]

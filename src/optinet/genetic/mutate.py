@@ -26,16 +26,16 @@ def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
 
     Parameters
     ----------
-    adjacency_matrix
+    adjacency_matrix :
         The adjacency matrix to be mutated.
-    prob
+    prob :
         Edge mutation probability. Default is 0.1. Must satisfy the following inequality:
         float: 0.0 <= prob <= 1.0
         int: 0 <= prob <= 100
         If an integer value is given, it is interpreted as a percentage.
-    rng
+    rng :
         Numpy random generator. Default is np.random.default_rng.
-    n
+    n :
         Number of mutations to generate.
 
     Returns
@@ -53,9 +53,10 @@ def from_adjacency_matrix(adjacency_matrix: npt.NDArray[np.int_],
     if check_for_adjacency_matrix(adjacency_matrix):
         masks = rng.choice([0, 1], size=(n, *adjacency_matrix.shape), p=(1 - prob, prob))
         masks = np.tril(masks, k=-1)
-        masks += np.transpose(masks, axes=(0, 2, 1))
-        mut_adjacency_matrix: npt.NDArray[np.int_] = adjacency_matrix.astype(int) ^ masks
-        return mut_adjacency_matrix
+        transpose_order = np.arange(0, len(masks.shape))
+        masks += np.transpose(masks, axes=(*transpose_order[:-2], transpose_order[-1], transpose_order[-2]))
+        mut_adjacency_matrices: npt.NDArray[np.int_] = adjacency_matrix.astype(int) ^ masks
+        return mut_adjacency_matrices
 
 
 def from_graph(graph: nx.Graph,
