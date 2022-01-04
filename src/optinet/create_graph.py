@@ -22,6 +22,9 @@ class CitiesNodes(nx.Graph):
         """
         super().__init__(**kwargs)
 
+        self.node_attrs = node_attrs
+        self.min_total_length: float = 0
+
         self._total_length: float = 0
         self._multi_incidence_matrix: Optional[pd.DataFrame] = None
 
@@ -34,6 +37,16 @@ class CitiesNodes(nx.Graph):
         elif node_attrs is not None:
             raise TypeError(f"node_attrs of type dictionary or pandas.DataFrame is expected, "
                             f"{type(node_attrs)} is obtained instead.")
+
+    def set_min_total_length(self):
+        self.update(nx.complete_graph(n=len(self.nodes)))
+        self.set_edge_lengths()
+        min_sp_tree_graph = nx.minimum_spanning_tree(self, weight="length")
+        self.clear_edges()
+        self.update(min_sp_tree_graph)
+        self.min_total_length = self.total_length
+        self.clear_edges()
+        return self.min_total_length
 
     def calculate_edge_lengths(self, edges):
         """Calculate length for each edge in edges.
@@ -78,14 +91,6 @@ class CitiesNodes(nx.Graph):
             lengths = self.calculate_edge_lengths(list(self.edges))
             nx.set_edge_attributes(self, dict(zip(self.edges, lengths)), name="length")
 
-    def set_edge_bandwidths(self):
-        """Set bandwidth for each edge."""
-        if not self.edges:
-            raise RuntimeWarning("The graph has no edges, no edge bandwidths were set.")
-        else:
-            bandwidths = self.multi_incidence_matrix.sum(axis="columns")
-            nx.set_edge_attributes(self, dict(zip(self.edges, bandwidths)), name="bandwidth")
-
     @property
     def total_length(self) -> float:
         """Total length of all edges."""
@@ -94,52 +99,28 @@ class CitiesNodes(nx.Graph):
         self._total_length = sum(nx.get_edge_attributes(self, "length").values())
         return self._total_length
 
-    # TODO: this property is not more necessary, remove it
-    @property
-    def multi_incidence_matrix(self):
-        """A matrix with complete description of how much traffic each edge carries to each node."""
-        current_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
-        if self._multi_incidence_matrix is None:
-            if self.edges:
-                data = np.ones(shape=(len(current_index), len(self.nodes)))
-                df = pd.DataFrame(data, columns=np.array(self.nodes).astype(str), index=current_index)
-                self._multi_incidence_matrix = df
-        else:
-            old_index = self._multi_incidence_matrix.index
-            if len(old_index) != len(current_index) or (old_index != current_index).any():
-                new_matrix = pd.DataFrame(index=current_index).join(
-                    self._multi_incidence_matrix,
-                    how="inner",
-                )
-                index_diff = set(current_index).difference(old_index)
-                data = np.ones(shape=(len(index_diff), len(self.nodes)))
-                df = pd.DataFrame(data, columns=np.array(self.nodes).astype(str), index=index_diff)
-                self._multi_incidence_matrix = new_matrix.append(df).sort_index()
-        return self._multi_incidence_matrix
+    def evaluate(self, population, length_coef=3, disconn_coef=2, conn_coef=1):
+        self.set_min_total_length()
+        scores = np.zeros(population.shape[0])
+        for i, individual in enumerate(population):
+            new_graph = CitiesNodes(self.node_attrs)
+            new_graph.update(nx.from_numpy_array(individual))
+            length_score = length_coef * self.min_total_length / new_graph.total_length
+            disconn_score = disconn_coef * int(nx.is_connected(self))
+            conn_score = conn_coef * nx.average_node_connectivity(self)
+            scores[i] = length_score + disconn_score + conn_score
+        return scores
 
-    @multi_incidence_matrix.setter
-    def multi_incidence_matrix(self, value: Optional[pd.DataFrame]):
-        if value is None and self.edges:
-            raise ValueError("multi_incidence_matrix can not be None, when graph contains edges")
-        elif value is None:     # and not self.edges
-            self._multi_incidence_matrix = None
-        elif self.edges and value.shape == (len(self.edges), len(self.nodes)):
-            acceptable_index = pd.MultiIndex.from_tuples(list(self.edges), names=["n1", "n2"])
-            if (value.sort_index().index == acceptable_index).all():
-                self._multi_incidence_matrix = value
-                self.set_edge_bandwidths()
-            else:
-                raise ValueError("Index of the DataFrame is not compatible with the current graph state.")
-        else:
-            raise ValueError(f"Shape of the multi_incidence_matrix must be equal (# of edges, # of nodes). "
-                             f"For this graph: ({len(self.edges)}, {len(self.nodes)}). "
-                             f"{value.shape} obtained instead.")
+    def optimise(self, n_mutations=3, population_size=10, redundancy_level=2):
+        adj_mat = nx.to_numpy_array(self, dtype=int)
+        st_edge_prob = 2 / len(self.nodes)  # probability of the edge in the spanning tree of this graph
+        init_prob = redundancy_level * st_edge_prob
+        init_prob = 0.5 if init_prob >= 1 else init_prob
+        population = mutate.from_adjacency_matrix(
+            adjacency_matrix=np.zeros(adj_mat.shape),
+            prob=init_prob,
+            n=population_size,
+        )
+        print(self.evaluate(population))
 
-    def optimise(self, n_mutations=100, prob=0.8, **kwargs):
-        for i in range(1, n_mutations+1):
-            new_graph = self.copy()
-            new_graph.clear_edges()
-            new_graph.update(mutate.from_graph(self, prob=(prob/i), **kwargs))
-            if new_graph.total_length < self.total_length and nx.is_connected(new_graph):
-                self.clear_edges()
-                self.update(new_graph)
+        pass

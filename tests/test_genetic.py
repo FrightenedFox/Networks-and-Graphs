@@ -13,7 +13,7 @@ adjacency_matrix = np.array([
 
 
 def test_from_matrix():
-    mut_matrix = mutate.from_adjacency_matrix(adjacency_matrix)
+    mut_matrix = mutate.from_adjacency_matrix(adjacency_matrix)[0]
     assert mut_matrix.ndim == 2
     assert mut_matrix.shape[0] == mut_matrix.shape[1]
     assert np.array_equal(mut_matrix, mut_matrix.T)
@@ -32,7 +32,6 @@ def test_from_graph():
     (([[0, 1], [1, 0]]), 10, TypeError),                    # not a numpy.array
     (np.array([0, 1, 0, 1]), 10, ValueError),               # not two-dimensional
     (np.array([[0, 1], [1, 0], [1, 1]]), 10, ValueError),   # not two-dimensional
-    (np.array([[0, 1], [0, 0]]), 10, ValueError),           # not symmetric
     (np.array([[0, 2], [2, 0]]), 1, NotImplementedError),   # hypergraph
 ])
 def test_adjacency_matrix_errors(matrix, prob, error):

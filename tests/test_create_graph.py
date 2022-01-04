@@ -4,8 +4,8 @@ import pandas as pd
 
 from optinet.create_graph import CitiesNodes
 
-df = pd.read_csv("tests/test_data/Cities.csv", sep=";", decimal=",")
-mim_df = pd.read_csv("tests/test_data/multi_incidence_matrix.csv", index_col=[0, 1])
+df = pd.read_csv("/home/vitalii/git_projects/Networks-and-Graphs/tests/test_data/Cities.csv", sep=";", decimal=",")
+mim_df = pd.read_csv("/home/vitalii/git_projects/Networks-and-Graphs/tests/test_data/multi_incidence_matrix.csv", index_col=[0, 1])
 node_list1 = [[2, 1], [0, 1], [1, 3], [16, 0]]
 node_list2 = [[4, 2], [10, 1]]
 
@@ -29,45 +29,6 @@ def test_lengths(graph):
 
     graph.update(nx.complete_graph(n=len(graph.nodes)))
     graph.optimise()
-
-
-def test_bandwidths(graph):
-    with pytest.raises(RuntimeWarning):
-        graph.set_edge_bandwidths()                # There are no edges in the graph yet
-
-    graph.add_edges_from(node_list1)
-    graph.set_edge_bandwidths()
-    assert graph.edges[0, 1]["bandwidth"] == 24.0
-
-
-def test_multi_incidence_matrix(graph):
-    assert graph.multi_incidence_matrix is None
-    graph.multi_incidence_matrix = None
-    assert graph.multi_incidence_matrix is None
-    graph.add_edges_from(node_list1)
-
-    assert graph.multi_incidence_matrix.shape == (4, 24)    # type: ignore[attr-defined, union-attr]
-    graph.multi_incidence_matrix = mim_df
-    assert graph.multi_incidence_matrix.sum().sum() == 48   # 0.5 * (4 rows) * (24 cols)
-
-    graph.add_edges_from(node_list2)
-    assert graph.multi_incidence_matrix.shape == (6, 24)    # type: ignore[attr-defined]
-    assert graph.multi_incidence_matrix.sum().sum() == 96   # 0.5 * (4 rows) * (24 cols) + 1.0 * (2 rows) * (24 cols)
-
-    graph.remove_edges_from(node_list2)
-    assert graph.multi_incidence_matrix.shape == (4, 24)    # type: ignore[attr-defined]
-    assert graph.multi_incidence_matrix.sum().sum() == 48   # 0.5 * (4 rows) * (24 cols)
-
-
-@pytest.mark.parametrize("value", [
-    None,                               # Can not be None when there are edges in the graph
-    mim_df.iloc[:2],                    # The shape of the DataFrame is not compatible with graph
-    mim_df.reset_index(drop=True),      # Index doesn't represent actual edges of the graph
-])
-def test_multi_incidence_matrix_errors(value, graph):
-    graph.add_edges_from(node_list1)
-    with pytest.raises(ValueError):
-        graph.multi_incidence_matrix = value
 
 
 @pytest.mark.parametrize("edges, error", [
