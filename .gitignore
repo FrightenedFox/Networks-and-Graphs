@@ -1,6 +1,7 @@
 Notebooks/.ipynb_checkpoints/
 !/.gitignore
 .virtual_documents/
+.vscode/
 
 ### VisualStudio template
 ## Ignore Visual Studio temporary files, build results, and

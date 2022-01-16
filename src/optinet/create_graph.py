@@ -116,13 +116,16 @@ class CitiesNodes(nx.Graph):
             disconn_score = int(nx.is_connected(new_graph))
             x = nx.average_node_connectivity(new_graph)
             conn_score = gaussian(x, redundancy_level, redundancy_sigma)
-            scores[i] = length_score + disconn_score + conn_score
+            y = nx.node_connectivity(new_graph)
+            actual_conn_score = gaussian(y, np.floor(redundancy_level), redundancy_sigma)
+            scores[i] = length_score * (6 / 3) + disconn_score + conn_score * (2 / 3) + actual_conn_score * (1 / 3)
             if scores[i] > best_score:
                 best_score = scores[i]
                 best_con_score = conn_score
+                best_actual_cs = y
                 best_length_score = length_score
                 best_discon = nx.is_connected(new_graph)
-        print(f"{best_length_score=} -- {best_con_score=} -- is connected? {best_discon}")
+        print(f"{best_length_score=:.4f} -- {best_con_score=:.3f} -- {best_actual_cs=:.1f}-- is connected? {best_discon}")
         return scores, np.argsort(scores)
 
     def optimise(self, n_generations=100, population_survival_size=12, redundancy_level=2, redundancy_sigma=0.1, reproduction_mutation_prob=0.001):
@@ -141,23 +144,25 @@ class CitiesNodes(nx.Graph):
             scores, places = self.evaluate(population, redundancy_level, redundancy_sigma)
             best_individuals = population[places][-population_survival_size:]
             best_cross = cross_section(best_individuals)
-            population = np.squeeze(mutate.from_adjacency_matrix(
+            population = np.concatenate((np.squeeze(mutate.from_adjacency_matrix(
                 adjacency_matrix=best_cross,
                 prob=reproduction_mutation_prob,
                 n=1,
-            ))
+            )), best_individuals), axis=0)
             scores = np.sort(scores)
             if np.isclose(previous_best, scores[-1], atol=10e-5):
                 n_repeats += 1
             else:
                 n_repeats = 0
             previous_best = scores[-1]
-            if n_repeats > 3:
+            if n_repeats > 1 and n_repeats < 6:
                 reproduction_mutation_prob *= 2
-            else:
+            elif n_repeats <= 1:
                 reproduction_mutation_prob = initial_reproduction_mutation_prob
 
-            print(f"{generation=}::{n_repeats=}::{np.sum(population[places][-1])}::{reproduction_mutation_prob=}::{scores[-5:]}")
+            print(f"{generation=} : {n_repeats=} : n_edges_in_best={np.sum(population[places][-1])}"
+                  f" : {reproduction_mutation_prob=} : {scores[-4:]}")
+
         _, places = self.evaluate(population, redundancy_level, redundancy_sigma)
         self.clear_edges()
         self.update(nx.from_numpy_array(population[places][-1]))
